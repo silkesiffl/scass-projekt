@@ -1,1 +1,93 @@
-/*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+/*Variabler*/
+/*De variabler ovenover er gloable variabler*/
+/*Mixin*/
+/*Mixin er en måde at genbruge kode på. Man tager kode som bruges flere steder og samler det som en mixin*/
+/*Vores partial fil hentes ind som et modul. Det gør det muligt for os at hente og genbruge variabler, mixins og funktioner i andre filer*/
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /*Betyder: gå ind i partial og find variablen $font*/
+  background-color: #f0f0f0;
+  /*Nesting- vi indsætter elementer som har direkte relation til øverste element af blokken (i dette tilfælde body)*/
+}
+body p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-weight: 600;
+  color: #333;
+}
+
+/*Skip to main content code snippet fra:https://www.a11y-collective.com/blog/skip-to-main-content/ */
+.screen-reader-text {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: black;
+  color: white;
+  opacity: 0;
+}
+
+.screen-reader-text:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+img {
+  max-width: 100%; /*Gør billeder responsive*/
+  height: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /*Her fortæller vi at vi skal have 5 kolonner af 1fr hver*/
+  grid-auto-rows: minmax(50px, auto); /*Ved brug af minmax sikrer vi en min. størrelse på 50 px og max auto betyder den tilpasser sig*/
+}
+
+/*Navigation*/
+header {
+  grid-column: 1/6;
+  background-color: #fff;
+  border-bottom: 4px solid #388071; /*Laver den grønne streg under navigationen*/
+}
+
+nav {
+  height: 4em;
+  padding: 1em;
+  /*$justify og $align er lokale variabler koblet til vores felx mixin. De er variabler der kan ændres, når vores mixin kaldes*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*Bruger vores mixin, men ændrer $justify til space-between*/
+}
+nav img {
+  width: 70px;
+}
+nav #bars {
+  display: none;
+}
+nav ul {
+  list-style-type: none;
+  /*$justify og $align er lokale variabler koblet til vores felx mixin. De er variabler der kan ændres, når vores mixin kaldes*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*Bruger vores partial flex til at få vores ul op ved siden af hinanden*/
+}
+nav a {
+  color: #333;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+nav a:hover, nav .active { /*Vores active class angiver hvilken side brugeren befinder sig på*/
+  color: #388071;
+}/*# sourceMappingURL=style.css.map */

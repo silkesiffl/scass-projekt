@@ -1,0 +1,91 @@
+@use 'partial'; /*Vores partial fil hentes ind som et modul. Det gør det muligt for os at hente og genbruge variabler, mixins og funktioner i andre filer*/
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: partial.$font;  /*Betyder: gå ind i partial og find variablen $font*/
+    background-color: partial.$bg-color;
+
+    /*Nesting- vi indsætter elementer som har direkte relation til øverste element af blokken (i dette tilfælde body)*/
+
+    p{
+        font-size: 16px;
+        color: partial.$text-color;
+        line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, h5, h6{
+        font-weight: 600;
+        color: partial.$text-color;
+    }
+}
+
+/*Skip to main content code snippet fra:https://www.a11y-collective.com/blog/skip-to-main-content/ */
+ 
+.screen-reader-text {
+    position: absolute; //Positions the link absolutely on the page, allowing it to be placed anywhere.
+    left: -9999px; //Moves the link far off-screen to the left, making it invisible to sighted users.
+    z-index: 999; //Sets a high z-index, ensuring that the link will be on top of other page elements if it becomes visible.
+    padding: 1em;
+    background-color: black;
+    color: white;
+    opacity: 0; //Sets the link's opacity to 0, making it fully transparent and invisible.
+  }
+  
+  .screen-reader-text:focus {
+    left: 50%; // When the link receives focus (e.g., when a keyboard user tabs to it), it is repositioned horizontally to the centre of the screen.
+    transform: translateX(-50%); //This centres the link horizontally by moving it back to the left by 50% of its own width.
+    opacity: 1; //The link's opacity is set to 1, making it fully visible.
+  }
+
+  img{
+    max-width: 100%; /*Gør billeder responsive*/
+    height: auto;
+  }
+
+  .container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /*Her fortæller vi at vi skal have 5 kolonner af 1fr hver*/
+    grid-auto-rows: minmax(50px, auto); /*Ved brug af minmax sikrer vi en min. størrelse på 50 px og max auto betyder den tilpasser sig*/
+  }
+
+  /*Navigation*/
+
+  header{
+    grid-column: 1 / 6;
+    background-color: partial.$nav-color;
+    border-bottom: 4px solid partial.$primary-color; /*Laver den grønne streg under navigationen*/
+  }
+
+  nav{
+    height: 4em;
+    padding: 1em;
+    @include partial.flex($justify: space-between); /*Bruger vores mixin, men ændrer $justify til space-between*/
+
+    img{
+        width: 70px;
+    }
+
+    #bars{
+        display: none;
+    }
+
+    ul{
+        list-style-type: none;
+        @include partial.flex;  /*Bruger vores partial flex til at få vores ul op ved siden af hinanden*/
+    }
+
+    a{
+        color: partial.$text-color;
+        padding: 0.5em;
+        margin: 0.5em;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover, .active{ /*Vores active class angiver hvilken side brugeren befinder sig på*/
+        color: partial.$primary-color;
+    }
+  }

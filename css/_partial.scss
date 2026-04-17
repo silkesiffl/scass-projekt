@@ -1,0 +1,20 @@
+/*Variabler*/
+$bg-color: #f0f0f0;
+$nav-color: #fff;
+$footer-color: #0a1f1c;
+$primary-color: #388071;
+$secondary-color: #133833;
+$text-color: #333;
+$font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+/*De variabler ovenover er gloable variabler*/
+
+/*Mixin*/
+/*Mixin er en måde at genbruge kode på. Man tager kode som bruges flere steder og samler det som en mixin*/
+
+@mixin flex($justify: center, $align: center){
+    /*$justify og $align er lokale variabler koblet til vores felx mixin. De er variabler der kan ændres, når vores mixin kaldes*/
+    display: flex;
+    justify-content: $justify;
+    align-items: $align; 
+}
