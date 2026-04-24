@@ -85,7 +85,7 @@ body{
         text-decoration: none;
     }
 
-    a:hover, .active{ /*Vores active class angiver hvilken side brugeren befinder sig på*/
+   .active{ /*Vores active class angiver hvilken side brugeren befinder sig på*/
         color: partial.$primary-color;
     }
   }
@@ -120,4 +120,80 @@ body{
         @include partial.btn;
         position: absolute;
     }
+  }
+
+  /*Fra i dag */
+
+  /*Forside main styling*/
+
+  main{
+    grid-column: 1 / 6;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    .cta-wrapper{
+        grid-column: 1 / 7;
+
+        h2{
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .cta-bokse{
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+  }
+
+  /*CTA bokse*/
+
+  .cta-1, .cta-2, .cta-3{
+    @include partial.cta-box;
+
+        img{
+            width: 60%;
+            display: block; /*Vi gør billedet til et block element for at kunne centrere med margin*/
+            margin: 0 auto;
+        }
+
+        p{
+            margin-bottom: 2em;
+        }
+
+        a{
+            @include partial.btn;
+            display: block; /*Ved at tilføje display: block; fylder knappen hele bredden af sin container*/
+        }
+  }
+
+  /*Tekst og billede sektion*/
+
+  .txt-img-section{
+    grid-column: 1 / 7;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .tekst{
+    grid-column: 1 / 5;
+    background-color: partial.$secondary-color;
+    padding: 2em 4em 4em 4em;
+
+        p, h2{
+            color: partial.$bg-color;
+        }
+
+            p:nth-of-type(4){
+                margin-bottom: 3em;
+            }
+
+            h2{
+                text-align: left;
+            }
+
+            .secondary-btn{
+                @include partial.btn($bg-color: transparent, $hover-bg: #fff, $hover-color: partial.$secondary-color);
+                border: 2px solid #fff;
+            }
   }

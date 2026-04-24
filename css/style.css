@@ -88,7 +88,7 @@ nav a {
   font-weight: bold;
   text-decoration: none;
 }
-nav a:hover, nav .active { /*Vores active class angiver hvilken side brugeren befinder sig på*/
+nav .active { /*Vores active class angiver hvilken side brugeren befinder sig på*/
   color: #388071;
 }
 
@@ -122,5 +122,101 @@ nav a:hover, nav .active { /*Vores active class angiver hvilken side brugeren be
   color: #fff;
   text-decoration: none;
   text-align: center;
+}
+.header-img a:hover {
+  background-color: #133833;
+  transition: 0.3 ease-in-out;
+  color: #fff;
+}
+.header-img a {
   position: absolute;
+}
+
+/*Fra i dag */
+/*Forside main styling*/
+main {
+  grid-column: 1/6;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+main .cta-wrapper {
+  grid-column: 1/7;
+}
+main .cta-wrapper h2 {
+  text-align: center;
+  font-size: 30px;
+}
+main .cta-wrapper .cta-bokse {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*CTA bokse*/
+.cta-1, .cta-2, .cta-3 {
+  background-color: #fff;
+  width: 20vw;
+  padding: 2em;
+  margin: 2em auto;
+}
+.cta-1 img, .cta-2 img, .cta-3 img {
+  width: 60%;
+  display: block; /*Vi gør billedet til et block element for at kunne centrere med margin*/
+  margin: 0 auto;
+}
+.cta-1 p, .cta-2 p, .cta-3 p {
+  margin-bottom: 2em;
+}
+.cta-1 a, .cta-2 a, .cta-3 a {
+  background-color: #388071;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+.cta-1 a:hover, .cta-2 a:hover, .cta-3 a:hover {
+  background-color: #133833;
+  transition: 0.3 ease-in-out;
+  color: #fff;
+}
+.cta-1 a, .cta-2 a, .cta-3 a {
+  display: block; /*Ved at tilføje display: block; fylder knappen hele bredden af sin container*/
+}
+
+/*Tekst og billede sektion*/
+.txt-img-section {
+  grid-column: 1/7;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.tekst {
+  grid-column: 1/5;
+  background-color: #133833;
+  padding: 2em 4em 4em 4em;
+}
+.tekst p, .tekst h2 {
+  color: #f0f0f0;
+}
+.tekst p:nth-of-type(4) {
+  margin-bottom: 3em;
+}
+.tekst h2 {
+  text-align: left;
+}
+.tekst .secondary-btn {
+  background-color: transparent;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+.tekst .secondary-btn:hover {
+  background-color: #fff;
+  transition: 0.3 ease-in-out;
+  color: #133833;
+}
+.tekst .secondary-btn {
+  border: 2px solid #fff;
 }/*# sourceMappingURL=style.css.map */

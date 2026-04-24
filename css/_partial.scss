@@ -19,11 +19,24 @@ $font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     align-items: $align; 
 }
 
-@mixin btn($bg-color: $primary-color, $btn-padding: 0.8em 1em){
+@mixin btn($bg-color: $primary-color, $btn-padding: 0.8em 1em, $hover-bg: $secondary-color, $hover-color: #fff){
     background-color: $bg-color;
     padding: $btn-padding;
     border-radius: 8px;
     color: #fff;
     text-decoration: none;
     text-align: center;
+
+         &:hover{
+                    background-color: $hover-bg;
+                    transition: 0.3 ease-in-out;
+                    color: $hover-color;
+                }
+}
+
+@mixin cta-box ($width: 20vw){
+    background-color: #fff;
+    width: $width;
+    padding: 2em;
+    margin: 2em auto;
 }
