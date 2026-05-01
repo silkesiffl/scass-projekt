@@ -347,4 +347,91 @@ footer:nth-of-type(2) {
 }
 footer:nth-of-type(2) p {
   color: #f0f0f0;
+}
+
+/*Tablet og mobil*/
+@media screen and (max-width: 900px) {
+  header {
+    display: inline; /*Ændre fra bloack til inline så elementer arbejder på at ligge sig ved siden af hianden*/
+  }
+  nav #bars {
+    display: flex;
+    border: none; /*Fjerner border fra button tag*/
+    background-color: transparent;
+    font-size: 2.3em;
+    color: #388071;
+    cursor: pointer;
+  }
+  nav ul {
+    display: none;
+    height: auto;
+    border-top: 4px solid #388071;
+    flex-direction: column;
+  }
+  nav ul li {
+    display: flex;
+  }
+  nav .show {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    padding: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 1;
+  }
+  .header-img {
+    background-image: url(../img/computer-m.jpg);
+    height: 60vh;
+  }
+  .header-img .banner-tekst {
+    left: 5%;
+    top: 20%;
+  }
+  .header-img h1 {
+    font-size: 5vw;
+  }
+  .header-img p {
+    font-size: 4vw;
+  }
+  .cta-bokse {
+    flex-direction: column;
+  }
+  .cta-bokse .cta-1, .cta-bokse .cta-2, .cta-bokse .cta-3 {
+    background-color: #fff;
+    width: 80%;
+    padding: 2em;
+    margin: 2em auto;
+  }
+  .cta-bokse .cta-1 img, .cta-bokse .cta-2 img, .cta-bokse .cta-3 img {
+    width: 50%;
+  }
+  .tekst {
+    grid-column: 1/8;
+    order: 2; /*Ændre rækkefølgen så billedet kommer øverst*/
+    padding: 2em 2em 4em 2em;
+  }
+  .secondary-btn {
+    display: block;
+  }
+  .billede {
+    grid-column: 1/8;
+    height: 300px;
+  }
+  .kontaktform {
+    width: 80%;
+  }
+  .kontaktform h3, .kontaktform p {
+    margin-bottom: 0.5em;
+  }
+  .section-form {
+    flex-direction: column;
+  }
+  input[type=text], input[type=email], input[type=tel], select, textarea {
+    margin: 0.5em 0 1em 0;
+  }
+  input[type=submit] {
+    margin: 0;
+  }
 }/*# sourceMappingURL=style.css.map */

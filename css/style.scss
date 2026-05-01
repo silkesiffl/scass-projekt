@@ -282,7 +282,6 @@ body{
             }
             a{
                 color: partial.$nav-color;
-
                 &:hover{
                     color: partial.$primary-color;
                 }
@@ -312,7 +311,109 @@ body{
             p{
                 color: partial.$bg-color;
             }
-      
+    }
+
+    /*Tablet og mobil*/
+    @media screen and (max-width: 900px){
+        header{
+            display: inline; /*Ændre fra bloack til inline så elementer arbejder på at ligge sig ved siden af hianden*/
+        }
+
+        nav{
+            #bars{
+                display: flex;
+                border: none; /*Fjerner border fra button tag*/
+                background-color: transparent;
+                font-size: 2.3em;
+                color: partial.$primary-color;
+                cursor: pointer;
+            }
+            ul{
+                display: none;
+                height: auto;
+                border-top: 4px solid partial.$primary-color;
+                flex-direction: column;
+
+                li{
+                display: flex;
+                }
+            }
+
+            .show{
+                display: flex;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                padding: 0;
+                background-color: partial.$nav-color;
+                width: 100%;
+                z-index: 1;
+            }
+        }
+        .header-img{
+            background-image: url(../img/computer-m.jpg);
+            height: 60vh;
+
+            .banner-tekst{
+                left: 5%;
+                top: 20%;
+            }
+
+            h1{
+                font-size: 5vw;
+            }
+
+            p{
+                font-size: 4vw;
+            }
+        }
+
+        .cta-bokse{
+            flex-direction: column;
+            
+            .cta-1, .cta-2, .cta-3{
+                @include partial.cta-box($width: 80%);
+
+                img{
+                    width: 50%;
+                }
+            }
+        }
+
+        .tekst{
+            grid-column: 1 / 8;
+            order: 2; /*Ændre rækkefølgen så billedet kommer øverst*/
+            padding: 2em 2em 4em 2em;
+        }
+
+        .secondary-btn{
+            display: block;
+        }
+
+        .billede{
+            grid-column: 1 / 8;
+            height: 300px;
+        }
+
+        .kontaktform{
+            width: 80%;
+
+            h3, p{
+                margin-bottom: 0.5em;
+            }
+        }
+
+        .section-form{
+            flex-direction: column;
+        }
+
+        input[type=text], input[type=email], input[type=tel], select, textarea{
+            margin: 0.5em 0 1em 0;
+        }
+
+        input[type=submit]{
+            margin: 0;
+        }
     }
 
 
